@@ -43,6 +43,9 @@ dependencies {
     // implementation("io.springfox:springfox-boot-starter:3.0.0")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 
+    // security
+    implementation("org.springframework.boot:spring-boot-starter-security:2.7.12")
+
     // jwt
     implementation("io.jsonwebtoken:jjwt-api:0.11.2")
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.2")

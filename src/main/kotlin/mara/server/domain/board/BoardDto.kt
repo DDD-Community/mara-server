@@ -2,7 +2,7 @@ package mara.server.domain.board
 
 data class BoardRequest(
     var title: String,
-    val userId:Long,
+    val userId: Long,
 )
 
 data class BoardResponse(

@@ -1,10 +1,10 @@
-package com.rainbow.server.auth.jwt
+package mara.server.auth.jwt
 
-import com.rainbow.server.auth.security.PrincipalDetailsService
-import com.rainbow.server.domain.member.entity.Member
-import com.rainbow.server.util.logger
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.Keys
+import mara.server.auth.security.PrincipalDetailsService
+import mara.server.domain.user.User
+import mara.server.util.logger
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
@@ -21,11 +21,11 @@ class JwtProvider(
     val key: Key = Keys.hmacShaKeyFor(secretKey.toByteArray())
     val log = logger()
 
-    fun generateToken(member: Member): String {
+    fun generateToken(user: User): String {
         val now = Date(System.currentTimeMillis())
         return Jwts.builder()
-            .setSubject(member.memberId.toString())
-            .claim("kaKaoId", member.kaKaoId)
+            .setSubject(user.userId.toString())
+            .claim("kaKaoId", user.kaKaoId)
             .setIssuedAt(now)
             .setExpiration(Date(now.time + accessDurationMils))
             .signWith(key)

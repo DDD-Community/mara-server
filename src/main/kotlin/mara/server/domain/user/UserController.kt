@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/users")
-class UserController(private val userService:UserService) {
+class UserController(private val userService: UserService) {
 
     @PostMapping
-    fun createUser(@RequestBody userRequest: UserRequest):CommonResponse<Long>{
+    fun createUser(@RequestBody userRequest: UserRequest): CommonResponse<Long> {
         return success(userService.createUser(userRequest))
     }
 }
